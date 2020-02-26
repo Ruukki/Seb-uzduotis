@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+} 
+@model Website.Models.IndexViewModel
+@Scripts.Render("~/Scripts/Index/Index.js")
+    <div class="jumbotron">
+        <h1>Interest rate info</h1>
+        <p><label>Agreement </label>@Html.DropDownListFor(x => x.Agreements, Model.Agreements.Select(x => new SelectListItem { Text = x.ToString(), Value = x.Id.ToString() }))</p>
+        <p><label>New base rate code </label>@Html.DropDownListFor(x => x.BaseRateCodes, new SelectList(Model.BaseRateCodes))</p>
+        <p><a href="@Url.Action("GetInfo")" class="btn btn-primary btn-lg" id="getInfo">Get info &raquo;</a></p>
+        <p><a href="@Url.Action("GetInformation", new {agreementId = "1",  newBaseRateCode="VILIBOR1m"})" class="btn btn-secondary btn-lg" id="getInfo">API link &raquo;</a></p>
+    </div>
+
+<div class="row" id="loadContent">
+    
+</div>

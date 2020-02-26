@@ -1,0 +1,15 @@
+﻿@using Microsoft.Ajax.Utilities
+@model Website.Models.InformationViewModel
+
+@if (Model.Error.IsNullOrWhiteSpace())
+{
+    <p><label>@Model.Customer.Name @Model.Customer.PersonCode</label></p>
+    <p>@Model.Agreement.ToString()</p>
+    <p>Old rate: @Model.OldIntrestRate</p>
+    <p>New rate: @Model.NewInteresRate</p>
+    <p>New - old rate: @Model.IntrestRateDiff</p>
+}
+else
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
